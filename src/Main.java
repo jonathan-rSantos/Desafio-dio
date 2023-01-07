@@ -8,9 +8,10 @@ public class Main {
         Filme filme1 = new Filme();
 
         filme1.setTitulo("Avatar");
-        filme1.setSinopse("Ação e aventura aclamada pelo publico, onde um paralitica viaja para um mundo no corpo de um avatar, possibilitando coisas empolgantes e grandes responsabilidades.");
+        filme1.setDescricao("Ação e aventura aclamada pelo publico, onde um paralitica viaja para um mundo no corpo de um avatar, possibilitando coisas empolgantes e grandes responsabilidades.");
         filme1.setCargaHoraria(150);
         System.out.println(filme1);
+
 
         Trailler mentoria = new Trailler();
 
@@ -18,6 +19,8 @@ public class Main {
         mentoria.setDescricao("Ficção científica/Ação");
         mentoria.setData(LocalDate.now());
 
+        System.out.println(filme1);
         System.out.println(mentoria);
+
     }
 }

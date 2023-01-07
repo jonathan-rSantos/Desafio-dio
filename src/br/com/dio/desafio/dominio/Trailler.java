@@ -2,31 +2,17 @@ package br.com.dio.desafio.dominio;
 
 import java.time.LocalDate;
 
-public class Trailler {
+public class Trailler extends Conteudo{
 
-    String titulo;
-    String descricao;
     LocalDate data;
 
     public Trailler() {
     }
 
-    public String getTitulo() {
-        return titulo;
+    @Override
+    public double calcularXp() {
+        return XP_PADRAO + 20d;
     }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
     public LocalDate getData() {
         return data;
     }
@@ -37,10 +23,10 @@ public class Trailler {
 
     @Override
     public String toString() {
-        return "Mentoria{" +
-                "titulo='" + titulo + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", data=" + data +
+        return "Trailler{" +
+                "titulo='" + getTitulo() + '\'' +
+                ", descricao='" + getDescricao() + '\'' +
+                ", data=" + getData() +
                 '}';
     }
 }
