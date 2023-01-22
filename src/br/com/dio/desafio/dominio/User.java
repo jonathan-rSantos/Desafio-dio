@@ -2,6 +2,7 @@ package br.com.dio.desafio.dominio;
 
 import java.util.LinkedHashSet;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 public class User {
@@ -9,13 +10,23 @@ public class User {
     private Set<Conteudo> conteudoInscritos = new LinkedHashSet<>();
     private Set<Conteudo> conteudoConcluidos = new LinkedHashSet<>();
 
-    public void inscreverCategoria(){
+        public void increverFilme(Filme conteudo){
+        this.conteudoInscritos.addAll(conteudo.getConteudo());
+        conteudo.getUserIncritos().add(this);
 
     }
     public void progresso(){
+        Optional<Conteudo> progresso = this.conteudoInscritos.stream().findFirst();
+        if (progresso.isPresent()){
+            this.conteudoInscritos.add(progresso.get());
+            this.conteudoInscritos.remove(progresso.get());
+        } else {
+            System.err.println("Você não iniciou nenhum conteudo, começe agora assistir");
+        }
     }
 
-    public  void calcularTotalXp(){
+    public  double calcularTotalXp(){
+        return this.conteudoConcluidos.stream().mapToDouble(conteudo -> conteudo.calcularXp()).sum();
     }
 
     @Override
